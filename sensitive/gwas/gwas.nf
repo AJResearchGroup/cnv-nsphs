@@ -1,0 +1,39 @@
+nextflow.enable.dsl=2
+
+process gwas_single_chromosome {
+  cpus 8
+  time '10h'
+  beforeScript 'ml R_packages'
+  publishDir params.gwas_out, mode: 'copy'
+
+  input:
+    path cnv_matrix
+    path phenotypes
+    path covariates
+    each chromosome
+  output:
+    path '*.glm'
+  shell:
+    template 'gwas.R'
+}
+
+workflow gwas { 
+  take:
+    cnv_matrix
+    pheno
+    covariates
+    chromosomes
+  main:
+    gwas_single_chromosome(cnv_matrix, pheno, covariates, chromosomes)
+  emit:
+    gwas_single_chromosome.out
+}
+
+workflow {
+  gwas(
+    Channel.fromPath(params.cnv_matrix),
+    Channel.fromPath(params.phenotypes),
+    Channel.fromPath(params.covariates),
+    Channel.of(params.chromosomes)
+  )
+}

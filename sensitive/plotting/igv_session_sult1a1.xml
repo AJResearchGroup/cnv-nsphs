@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Session genome="hg19" hasGeneTrack="true" hasSequenceTrack="true" locus="chr16:28607915-28628838" nextAutoscaleGroup="2" version="8">
+    <Resources>
+        <Resource path="../../SMRT/calls/svim/pt_005_012/signatures/ins.sorted.bed"/>
+        <Resource path="../../SMRT/repeatmasker_sorted.bed.gz"/>
+        <Resource path="../cnv_calls/qc/P4602_285.clean.dedup_variants_qc.bed"/>
+    </Resources>
+    <Panel height="193" name="DataPanel" width="1568">
+        <Track attributeKey="P4602_285.clean.dedup_variants_qc.bed" clazz="org.broad.igv.track.FeatureTrack" color="204,102,0" colorScale="ContinuousColorScale;0.0;29.0;255,255,255;0,0,178" fontSize="20" id="/home/danies/disentanglement/cnv_calls/qc/P4602_285.clean.dedup_variants_qc.bed" name="CNVnator Call (Illumina)" visible="true"/>
+        <Track attributeKey="ins.sorted.bed" clazz="org.broad.igv.track.FeatureTrack" color="153,0,255" displayMode="EXPANDED" featureVisibilityWindow="369024200" fontSize="20" id="/home/danies/SMRT/calls/svim/pt_005_012/signatures/ins.sorted.bed" name="SVIM Insertions (PacBio)" visible="true"/>
+        <Track attributeKey="repeatmasker_sorted.bed.gz" clazz="org.broad.igv.track.FeatureTrack" color="0,0,204" displayMode="EXPANDED" featureVisibilityWindow="4698544" fontSize="20" id="/home/danies/SMRT/repeatmasker_sorted.bed.gz" name="Repetitive Elements" visible="true"/>
+    </Panel>
+    <Panel height="43" name="FeaturePanel" width="1568">
+        <Track attributeKey="Reference sequence" clazz="org.broad.igv.track.SequenceTrack" fontSize="20" id="Reference sequence" name="Reference sequence" visible="true"/>
+        <Track attributeKey="RefSeq Genes" clazz="org.broad.igv.track.FeatureTrack" color="0,0,0" colorScale="ContinuousColorScale;0.0;444.0;255,255,255;0,0,178" fontSize="20" height="35" id="hg19_genes" name="RefSeq Genes" visible="true"/>
+    </Panel>
+    <PanelLayout dividerFractions="0.8024691358024691"/>
+    <HiddenAttributes>
+        <Attribute name="DATA FILE"/>
+        <Attribute name="DATA TYPE"/>
+        <Attribute name="NAME"/>
+    </HiddenAttributes>
+</Session>
