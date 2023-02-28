@@ -17,6 +17,20 @@ process gwas_single_chromosome {
     template 'gwas.R'
 }
 
+process merge_gwas_results {
+  cpus 2
+  time '1h'
+  beforeScript 'ml R_packages'
+  publishDir params.gwas_out, mode: 'copy'
+
+  input:
+    path '*.glm'
+  output:
+    path 'gwas.RDS'
+  shell:
+    template 'merge_results.R'
+}
+
 workflow gwas { 
   take:
     cnv_matrix
@@ -25,8 +39,9 @@ workflow gwas {
     chromosomes
   main:
     gwas_single_chromosome(cnv_matrix, pheno, covariates, chromosomes)
+    merge_gwas_results(gwas_single_chromosome.out.collect())
   emit:
-    gwas_single_chromosome.out
+    merge_gwas_results.out
 }
 
 workflow {
