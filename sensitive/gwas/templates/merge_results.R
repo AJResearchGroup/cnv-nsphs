@@ -10,4 +10,4 @@ saveRDS(gwas, "gwas.RDS")
 
 p_threshold <- .05 / nrow(gwas)
 gwas[p < p_threshold] |>
-  saveRDS("significant_cnvs.RDS")
+  fwrite("significant_cnvs.RDS", sep="\t")
