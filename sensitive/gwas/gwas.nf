@@ -27,6 +27,7 @@ process merge_gwas_results {
     path '*.glm'
   output:
     path 'gwas.RDS'
+    path 'significan_cnvs.RDS'
   shell:
     template 'merge_results.R'
 }
