@@ -8,7 +8,7 @@ load_snps <- function(path) {
   snps <- read_excel(path, skip = 7L) |>
     as.data.table()
   setnames(snps, c("Chr...6", "Position*"), c("Chr", "Position"))
-  snps[, .(Chr, Position, SNP, Beta, `P-value`, `Effective allele`, `Other Allele`)]
+  snps[, .(Chr, Position, SNP, Protein, Beta, `P-value`, `Effective allele`, `Other Allele`)]
 }
 
 load_cnvs <- function(path) {
